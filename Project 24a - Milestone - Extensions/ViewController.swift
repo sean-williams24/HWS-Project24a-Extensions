@@ -30,6 +30,11 @@ class ViewController: UIViewController {
         
         4.times { print("Print this guinness 4 times") }
         
+        let count = -5
+        count.times {
+            print("YO")
+        }
+        
         
         // Array extension removing first occorance of an element
         let seansLovelyArray = ["sean", "rob", "gregg", "jason", "sean", "rob"]
@@ -60,6 +65,11 @@ extension Array where Element: Comparable {
 extension Int {
     
     func times(runClosure: () -> Void) {
+        guard self > 0 else {
+            print("Negative Number Fool")
+            return
+        }
+        
         for _ in 0..<self {
             runClosure()
         }

@@ -16,15 +16,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-   
+        // bounceOut UIView extension
         square.bounceOut(duration: 10)
         
         
+        // Int extension accepting a colure as a parameter and running that many times
+        5.times {
+            print("ASS")
+        }
+        
+        let driving = { print("Driving") }
+        2.times(runClosure: driving)
+        
+        4.times { print("Print this guinness 4 times") }
         
     }
 
     
 
+}
+
+extension Int {
+    
+    func times(runClosure: () -> Void) {
+        for _ in 0..<self {
+            runClosure()
+        }
+    }
 }
 
 

@@ -10,11 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var square: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+   
+        square.bounceOut(duration: 10)
+        
+        
+        
     }
 
+    
 
 }
 
+
+extension UIView {
+    
+    func bounceOut(duration: Double) {
+        UIView.animate(withDuration: duration, animations: {
+            self.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        }) { (result) in
+
+        }
+    }
+    
+}

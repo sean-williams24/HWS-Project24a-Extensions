@@ -30,11 +30,32 @@ class ViewController: UIViewController {
         
         4.times { print("Print this guinness 4 times") }
         
+        
+        // Array extension removing first occorance of an element
+        let seansLovelyArray = ["sean", "rob", "gregg", "jason", "sean", "rob"]
+        print(seansLovelyArray.remove(item: "sean"))
+        print(seansLovelyArray.remove(item: "rob"))
+        print(seansLovelyArray.remove(item: "jason"))
+        
     }
 
-    
-
 }
+
+extension Array where Element: Comparable {
+    
+    func remove(item: Element) -> [Element] {
+        var array = self
+        
+        for (index, arrayItem) in array.enumerated() {
+            if arrayItem == item {
+                array.remove(at: index)
+                break
+            }
+        }
+        return array
+    }
+}
+
 
 extension Int {
     
